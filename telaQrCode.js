@@ -2,10 +2,10 @@ import {View, Text, TouchableOpacity} from 'react-native'
 import QRCode from './QRcodeCanvas';
 import { TextInput } from 'react-native';
 import { useState } from 'react';
-import {CheckBox} from 'react-native-elements'
+import {CheckBox} from 'react-native-elements';
 import { StyleSheet } from 'react-native';
 
-export default function telaQrCode(){
+export default function TelaQrCode(){
   const [txt,setTxt]=useState('www.tectoySunmi.com.br')
   const [tam,setTam]=useState('8')
   const [sim,setS]=useState(true)
@@ -39,11 +39,9 @@ export default function telaQrCode(){
       </View>
 
       <View style={styles.visao}>
-        <Text>QR-Code tamanho:</Text>
-        <View style={{width:20}}></View>
+        <Text style={{marginEnd:20}}>QR-Code tamanho:</Text>
         <TouchableOpacity onPress={diminui}>
-          <Text style={styles.texto}>-</Text>
-        </TouchableOpacity>
+          <Text style={styles.texto}>-</Text></TouchableOpacity>
         <Text style={{fontSize:20,backgroundColor:'darkgrey',height:36}}> {tam} </Text>
         <TouchableOpacity onPress={aumenta}>
           <Text style={styles.texto}>+</Text>  
@@ -62,6 +60,7 @@ export default function telaQrCode(){
         <CheckBox title='Sim' checked={sim} onPress={()=>(setS(true),setN(false))}/>
         <CheckBox title='Não' checked={nao} onPress={()=>(setN(true),setS(false))}/>
       </View>
+
       <QRCode text={txt}></QRCode>
     </View>
   );

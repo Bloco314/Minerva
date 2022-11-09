@@ -1,7 +1,7 @@
 import {View,Text, TouchableOpacity} from 'react-native';
 import { StyleSheet } from 'react-native';
 
-export default function telaInicial({navigation}){
+export default function TelaInicial({navigation}){
     return(
       <View style={{
         padding:10, backgroundColor:'black'
