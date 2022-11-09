@@ -1,4 +1,3 @@
-# @uthor Minerva
-# @uthor José Manuel
+#Minerva - ReactNative
 
 Projeto sunmi em react-native para callidus.
