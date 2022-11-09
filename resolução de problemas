@@ -1,0 +1,10 @@
+-esses são arquvios referencia para a funcionalidade é necessario a pasta node-modules, expo(gerado quando roda o projeto)
+
+-importar as bibliotecas:
+qrcode
+react-native-elements
+@react-navigation/native
+@react-navigation/native-stack
+
+geralmente basta usar o comando 'npm i' para instalar as dependecias do projeto direto do package.json, mas se houver problemas tente usar 'npm install' das bibliotecas
+acima para garantir que estão funcionando bem.
