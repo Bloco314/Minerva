@@ -20,39 +20,50 @@ export default function TelaText(){
     }
   }
 
+  const styles = StyleSheet.create({
+    texto:{
+      fontSize:20,
+      backgroundColor:'blue',
+      color:'white',
+      padding:5,
+      width:30,
+      textAlign:'center'
+    },
+    visao:{
+      alignSelf:'center',
+      alignItems:'center',
+      flexDirection:'row',
+      padding:2
+    },
+    V:{
+      backgroundColor:'lightgrey',
+      flexDirection:'column',
+      alignItems:'baseline',
+      alignSelf:'center'
+    },
+    t:{
+      fontSize:20,
+      backgroundColor:'darkgrey',
+      height:36
+    }
+  })
+
   return(
-    <View style={{backgroundColor:'lightgrey',padding:4,flexDirection:'column',alignItems:'baseline',alignSelf:'center'}}>
-        <View style={styles.visao}>
-          <Text style={{marginEnd:20}}>tamanho:</Text>
-          <TouchableOpacity onPress={diminui}>
-            <Text style={styles.texto}>-</Text></TouchableOpacity>
-          <Text style={{fontSize:20,backgroundColor:'darkgrey',height:36}}> {tam} </Text>
-          <TouchableOpacity onPress={aumenta}>
-            <Text style={styles.texto}>+</Text>  
-          </TouchableOpacity>
+    <View style={styles.V}>
+      <View style={styles.visao}>
+        <Text>tamanho:   </Text>
+        <TouchableOpacity onPress={diminui}>
+          <Text style={styles.texto}>-</Text></TouchableOpacity>
+        <Text style={styles.t}> {tam} </Text>
+        <TouchableOpacity onPress={aumenta}>
+          <Text style={styles.texto}>+</Text>  
+        </TouchableOpacity>
       </View>
 
-        <View style={styles.visao}>
-          <CheckBox title='Negrito' checkedColor="blue" checked={bold} onPress={()=>setBold(!bold)}/>
-          <CheckBox title='Sublinhado' checkedColor="orange" checked={underline} onPress={()=>setunder(!underline)}/>  
-        </View>
+      <View style={styles.visao}>
+        <CheckBox title='Negrito' checkedColor="blue" checked={bold} onPress={()=>setBold(!bold)}/>
+        <CheckBox title='Sublinhado' checkedColor="orange" checked={underline} onPress={()=>setunder(!underline)}/>  
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  texto:{
-    fontSize:20,
-    backgroundColor:'blue',
-    color:'white',
-    padding:5,
-    width:30,
-    textAlign:'center'
-  },
-  visao:{
-    alignSelf:'center',
-    alignItems:'center',
-    flexDirection:'row',
-    padding:2
-  }
-})
