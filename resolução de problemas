@@ -8,3 +8,5 @@ react-native-elements
 
 geralmente basta usar o comando 'npm i' para instalar as dependecias do projeto direto do package.json, mas se houver problemas tente usar 'npm install' das bibliotecas
 acima para garantir que estão funcionando bem.
+
+#ai
