@@ -13,6 +13,7 @@ export default function TelaQrCode(){
   const [checked1,set1]=useState(false)
   const [checked2,set2]=useState(true)
   const [checked3,set3]=useState(false)
+  const [direcao,setDirecao]=useState('column')
 
   const [wDimension,setD] = useState(
       {width : window.innerWidth,
@@ -23,6 +24,11 @@ export default function TelaQrCode(){
         width : window.innerWidth,
         height : window.innerHeight,
       })
+      if(wDimension.width>540){
+        setDirecao('row')
+      }else{  
+        setDirecao('column')
+      }
   }
   useEffect (()=>{
         window.addEventListener('resize',detectSize)
@@ -98,7 +104,7 @@ export default function TelaQrCode(){
 
       <View style={styles.v2}>      
         <Text>Alinhamento:</Text>
-        <View style={{flexDirection:'column'}}>
+        <View style={{flexDirection:direcao}}>
           <CheckBox style={{flex:1}} title='Esquerda' checked={checked1} onPress={()=>(set1(true),set2(false),set3(false))} checkedColor='blue'/>
           <CheckBox style={{flex:1}} title='Centro' checked={checked2} onPress={()=>(set1(false),set2(true),set3(false))} checkedColor='blue'/>
           <CheckBox style={{flex:1}} title='Direita' checked={checked3} onPress={()=>(set1(false),set2(false),set3(true))} checkedColor='blue'/>
