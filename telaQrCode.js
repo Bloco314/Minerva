@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, useWindowDimensions} from 'react-native' 
+import {View, Text, TouchableOpacity} from 'react-native' 
 import QRCode from './QRcodeCanvas';
 import { TextInput } from 'react-native';
 import { useState,useEffect } from 'react';
@@ -7,6 +7,13 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 
 export default function TelaQrCode(){
+
+  const [txt,setTxt]=useState('www.tectoySunmi.com.br')
+  const [tam,setTam]=useState('8')
+  const [checked1,set1]=useState(false)
+  const [checked2,set2]=useState(true)
+  const [checked3,set3]=useState(false)
+
   const [wDimension,setD] = useState(
       {width : window.innerWidth,
       height : window.innerHeight,}
@@ -24,13 +31,6 @@ export default function TelaQrCode(){
         }
   },[wDimension])
 
-  const [txt,setTxt]=useState('www.tectoySunmi.com.br')
-  const [tam,setTam]
-  =useState('8')
-  const [checked1,set1]=useState(false)
-  const [checked2,set2]=useState(true)
-  const [checked3,set3]=useState(false)
-  
   function aumenta(){
     if(Number(tam)<12){
       setTam(Number(tam)+1)
@@ -44,22 +44,16 @@ export default function TelaQrCode(){
   }
 
   return(
-    <View style={{ 
+    <View style={ {  
       height:wDimension.height*0.85,
       width:wDimension.width,
       backgroundColor:'lightgrey',
       padding:'2%',
       flexDirection:'column',
       alignSelf:'center',
-      alignItems:'center'
-      }}>
+      alignItems:'center'}}>
 
-      <View style={{
-        flex:1,
-        alignItems:'center',
-        flexDirection:'row',
-        padding:'1%'
-      }}>
+      <View style={styles.v1}>
         <Text>QRCode: </Text>
         <TextInput 
           style={{backgroundColor: 'darkgrey',color:'black'}}
@@ -68,12 +62,7 @@ export default function TelaQrCode(){
         </TextInput>
       </View>
 
-      <View style={{
-        flex:1,
-        alignItems:'center',
-        flexDirection:'row',
-        padding:'1%'
-      }}>
+      <View style={styles.v1}>
         <Text>QR-Code tamanho:  </Text>
         <TouchableOpacity onPress={diminui}>
           <Text style={styles.texto}>-1  </Text>
@@ -84,12 +73,7 @@ export default function TelaQrCode(){
         </TouchableOpacity>
       </View>
 
-      <View style={{
-        flex:4,
-        alignItems:'center',
-        flexDirection:'row',
-        padding:'1%'
-      }}>      
+      <View style={styles.v2}>      
         <Text>Alinhamento:</Text>
         <View style={{flexDirection:'column'}}>
           <CheckBox style={{flex:1}} title='Esquerda' checked={checked1} onPress={()=>(set1(true),set2(false),set3(false))} checkedColor='blue'/>
@@ -98,7 +82,7 @@ export default function TelaQrCode(){
         </View>
       </View>
 
-      <View style={{flex:4,alignItems:'center',marginTop:'2%'}}>
+      <View style={styles.v2}>
         <QRCode text={txt}></QRCode>
       </View>
     </View>
@@ -111,5 +95,18 @@ const styles = StyleSheet.create({
     color:'white',
     padding:'2%',
     textAlign:'center'
+  },
+  v1:{ 
+      flex:1,
+      alignItems:'center',
+      flexDirection:'row',
+      padding:'1%'
+  },
+  v2:{
+    flex:4,
+    alignItems:'center',
+    marginTop:'2%',
+    flex:4,
+    flexDirection:'row'
   }
 })
