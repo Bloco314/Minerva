@@ -43,16 +43,39 @@ export default function TelaQrCode(){
     }
   }
 
-  return(
-    <View style={ {  
+  const styles = StyleSheet.create({
+    texto:{
+      backgroundColor:'blue',
+      color:'white',
+      padding:'2%',
+      textAlign:'center'
+    },
+    v1:{ 
+        flex:1,
+        alignItems:'center',
+        flexDirection:'row',
+        padding:'1%'
+    },
+    v2:{
+      flex:4,
+      alignItems:'center',
+      marginTop:'2%',
+      flex:4,
+      flexDirection:'row'
+    },
+    V:{  
       height:wDimension.height*0.85,
       width:wDimension.width,
       backgroundColor:'lightgrey',
       padding:'2%',
       flexDirection:'column',
       alignSelf:'center',
-      alignItems:'center'}}>
+      alignItems:'center'
+    }
+  })
 
+  return(
+    <View style={styles.V}>
       <View style={styles.v1}>
         <Text>QRCode: </Text>
         <TextInput 
@@ -88,25 +111,3 @@ export default function TelaQrCode(){
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  texto:{
-    backgroundColor:'blue',
-    color:'white',
-    padding:'2%',
-    textAlign:'center'
-  },
-  v1:{ 
-      flex:1,
-      alignItems:'center',
-      flexDirection:'row',
-      padding:'1%'
-  },
-  v2:{
-    flex:4,
-    alignItems:'center',
-    marginTop:'2%',
-    flex:4,
-    flexDirection:'row'
-  }
-})
